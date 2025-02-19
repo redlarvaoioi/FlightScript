@@ -1,2 +1,1 @@
-# GithubCodespaceDisc
-this will provide a github codespace with more than 200 gigs of disk space
+will update this later, still in development
