@@ -1,0 +1,28 @@
+{
+    "name": "BlobeVM",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-20.04",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [],
+    "postCreateCommand": "echo 'Codespace created!'",
+    "remoteUser": "vscode",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "version": "latest"
+        }
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+    "runArgs": [
+        "--mount",
+        "type=volume,source=blobe_vm_data,target=/var/lib/blobe_vm_data"
+    ],
+    "containerUser": "vscode",
+    "containerEnv": {
+        "DISK_SIZE": "500g"
+    }
+}
